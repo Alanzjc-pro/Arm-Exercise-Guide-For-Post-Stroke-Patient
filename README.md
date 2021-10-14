@@ -11,8 +11,8 @@ We designed a low-cost wearable IMU device (3-axis accelerometer and gyroscope) 
 * Arduino Nano BLE sense function implementation
 * Web GUI design for exercise analysis
 
-### Hardware Prototype
-6-axis IMU sensor is utilized to collect kinematic information of the user during exercises. 2.4 GHz wireless communi- cation antenna is utilised to transmit and send data to GUI. The Arduino Nano 33 BLE sense has incorporated all IMU and BLE modules as the microcontroller. Extra modules, such as SD card reader, along with push button and LED are used for data collection and hardware control. All components are powered by 5V power bank with 2.1A current output.
+### Hardware Prototype Development
+6-axis IMU sensor is utilized to collect kinematic information of the user during exercises. 2.4 GHz wireless communi- cation antenna is utilised to transmit and send data to GUI. The Arduino Nano 33 BLE sense has incorporated all IMU and BLE modules as the microcontroller. Extra modules, such as SD card reader, along with push button and LED are used for data collection and hardware control. All components are powered by 5V power bank with 2.1A current output.<br />
 <img width="162" alt="IrfanHardware" src="https://user-images.githubusercontent.com/72474193/137358998-e012eb85-5044-4e3c-a437-a9876bb58831.png">
 
 ### Data Processing and Collection
@@ -23,5 +23,7 @@ In the experiement data collection, we considered 3 potential failure cases (sha
 ### Machine Learning Model
 Initally, the total 1600 datasets are spilt into training data (70%) and test data (30%). For hyperparameter tuning, 20% training data are split for validation data. The sequence of collected datasets with sensor readings are converted to the statistical features (mean, median, max, min and std) as ML inputs and also are annotated as corresponding exer- cises, resulting in totally 40 input features as a feature vector with 1 target label.
 
-Four types of ML models are investigated to classify 16 exercise outputs, including KNN, SVM, DT and MLP. Specific hyperparameters in each models are tuned on the validation sets to obtain the optimal hyperparamters. Finally, we retrain models with the optimal hyperparameters for performance analysis on unseen test data.
+Four types of ML models are investigated to classify 16 exercise outputs, including KNN, SVM, DT and MLP. Specific hyperparameters in each models are tuned on the validation sets to obtain the optimal hyperparamters. Finally, we retrain models with the optimal hyperparameters for performance analysis on unseen test data.<br />
+
+![ML](https://user-images.githubusercontent.com/72474193/137360602-038635db-d512-4c5c-8375-dfc1620ce8d8.png)
 
