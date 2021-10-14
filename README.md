@@ -21,9 +21,15 @@ We firstly use a 4-tap moving average filter to remove the motion noise of accel
 In the experiement data collection, we considered 3 potential failure cases (shaking,low speed etc) for each exercise to provide more useful exercise feedbacks. Besides, three members did all exercises seperately in the different environment settings, resulting in convinced datasets for real-world applications. To remove any bias for ML model training and guarantee reliable accuracy, 100 datasets of each output are collected equally by all members, resulting in totally 1600 datasets.
 
 ### Machine Learning Model
-Initally, the total 1600 datasets are spilt into training data (70%) and test data (30%). For hyperparameter tuning, 20% training data are split for validation data. The sequence of collected datasets with sensor readings are converted to the statistical features (mean, median, max, min and std) as ML inputs and also are annotated as corresponding exer- cises, resulting in totally 40 input features as a feature vector with 1 target label.
+Initally, the total 1600 datasets are spilt into training data (70%) and test data (30%). For hyperparameter tuning, 20% training data are split for validation data. The sequence of collected datasets with sensor readings are converted to the statistical features (mean, median, max, min and std) as ML inputs and also are annotated as corresponding exer- cises, resulting in totally 40 input features as a feature vector with 1 target label. With the use of encoder, the string target labels are converted to the binary matrix for neural network training and integer values for standard ML models training.
 
 Four types of ML models are investigated to classify 16 exercise outputs, including KNN, SVM, DT and MLP. Specific hyperparameters in each models are tuned on the validation sets to obtain the optimal hyperparamters. Finally, we retrain models with the optimal hyperparameters for performance analysis on unseen test data.<br />
 
 ![ML](https://user-images.githubusercontent.com/72474193/137360602-038635db-d512-4c5c-8375-dfc1620ce8d8.png)
 
+|Type of ML models|Test Accuracy| Precison | Recall | F1 score|
+|---|---|---|---|---|
+|MLP|0.85|0.88|0.85|0.85|
+|DT| 0.88|0.89|0.88|0.88|
+Table demonstrates the performance analysis of 4 best trained ML models on 471 unseen test data. Overall, all models achieve high test accuracy, precision, recall and F1 score. DT can perform slightly better than MLP but the MLP model offers more flexibility in the architecture optimization. Although KNN achieves similar performance like the SVM model, the distance-based method relies on the feature prepossessing to reduce the input dimension for less computation and memory usage, which makes them harder to implement in the small memory Arduino. In three kernels of the SVM model, the linear SVM achieves the best performance in all metrics.
+In terms of flexibility and accuracy, the SVM and MLP trained model are converted and implemented in Arduino for real-scenario testing.
