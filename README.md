@@ -27,9 +27,14 @@ Four types of ML models are investigated to classify 16 exercise outputs, includ
 
 ![ML](https://user-images.githubusercontent.com/72474193/137360602-038635db-d512-4c5c-8375-dfc1620ce8d8.png)
 
+
+Table demonstrates the performance analysis of 4 best trained ML models on 471 unseen test data. Overall, all models achieve high test accuracy, precision, recall and F1 score. DT can perform slightly better than MLP but the MLP model offers more flexibility in the architecture optimization. Although KNN achieves similar performance like the SVM model, the distance-based method relies on the feature prepossessing to reduce the input dimension for less computation and memory usage, which makes them harder to implement in the small memory Arduino. In three kernels of the SVM model, the linear SVM achieves the best performance in all metrics.
+In terms of flexibility and accuracy, the SVM and MLP trained model are converted and implemented in Arduino for real-scenario testing. <br/>
 |Type of ML models|Test Accuracy| Precison | Recall | F1 score|
 |---|---|---|---|---|
 |MLP|0.85|0.88|0.85|0.85|
 |DT| 0.88|0.89|0.88|0.88|
-Table demonstrates the performance analysis of 4 best trained ML models on 471 unseen test data. Overall, all models achieve high test accuracy, precision, recall and F1 score. DT can perform slightly better than MLP but the MLP model offers more flexibility in the architecture optimization. Although KNN achieves similar performance like the SVM model, the distance-based method relies on the feature prepossessing to reduce the input dimension for less computation and memory usage, which makes them harder to implement in the small memory Arduino. In three kernels of the SVM model, the linear SVM achieves the best performance in all metrics.
-In terms of flexibility and accuracy, the SVM and MLP trained model are converted and implemented in Arduino for real-scenario testing.
+|KNN| 0.95|0.96|0.95|0.95|
+|SVM (RGF Kernel)| 0.96|0.95|0.95|0.95|
+|SVM (polynomial Kernel)| 0.95|0.96|0.95|0.95|
+|SVM (linear Kernel)| 0.96|0.96|0.96|0.96|
